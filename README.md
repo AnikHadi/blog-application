@@ -8,7 +8,7 @@ Redux Project Blog Application
 
 ## Documentation
 
-[Live Project](https://famous-gelato-e35740.netlify.app/)
+[Live Project](https://visionary-baklava-751a50.netlify.app/)
 
 ## How to run
 
@@ -19,7 +19,7 @@ Please follow the below instructions to run this project in your machine:
 - Clone this repository -
 
 ```bash
-  git clone https://github.com/HadiAnik/video-gallery.git
+  git clone https://github.com/Learn-with-Sumit/batch-2---assignment-6--blog-application-HadiAnik.git
 ```
 
 - Go to the cloned project directory

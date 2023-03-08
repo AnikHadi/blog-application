@@ -6,9 +6,7 @@ const HomePage = () => {
   return (
     <section className="wrapper">
       <FilterSideView />
-      {/* <!-- posts container  --> */}
       <BlogsContainer />
-      {/* <!-- posts container ends --> */}
     </section>
   );
 };

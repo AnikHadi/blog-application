@@ -25,6 +25,8 @@ const BlogsContainer = () => {
     }
   };
 
+  // error loading এই গুলা দিয়ে checking করে conditionally render করলে কনো event এ click করলে page reload  হয়ে  first  এ চলে যাচ্ছে। এই জন্য  conditionally render implement করে ও use করি নাই।
+
   // // something
   // let contain;
   // if (isLoading) contain = <Loading />;

@@ -45,12 +45,11 @@ const blogSlice = createSlice({
         state.blog = {};
         state.error = action.error?.message;
       })
-      .addCase(updateBlog.pending, (state, action) => {
+      .addCase(updateBlog.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
       })
       .addCase(updateBlog.fulfilled, (state, action) => {
-        // console.log(action.payload);
         state.blog = action.payload;
         state.isLoading = false;
       })

@@ -8,7 +8,6 @@ const RelatedBlogsList = ({ blog }) => {
   });
   return (
     <div className="space-y-4 related-post-container">
-      {/* <!-- related post  --> */}
       <div className="card">
         <Link to={`/blogs/${id}`}>
           <img src={image} className="card-image" alt={title} />
@@ -24,7 +23,6 @@ const RelatedBlogsList = ({ blog }) => {
           <p>{createdAt}</p>
         </div>
       </div>
-      {/* <!-- related post ends --> */}
     </div>
   );
 };

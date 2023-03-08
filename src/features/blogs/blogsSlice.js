@@ -10,16 +10,11 @@ const initialState = {
   error: "",
 };
 
-// if (sortBy === "most_liked") {
-//   filterBlogs.sort((a, b) => b.likes - a.likes);
-// }
-
 export const fetchBlogs = createAsyncThunk(
   "blogs/fetchBlogs",
   async ({ sortBy }) => {
-    // { tags, searchText }
     const blogs = await getBlogs();
-    // { tags, searchText }
+
     if (sortBy === "most_liked") {
       blogs.sort((a, b) => b.likes - a.likes);
     } else if (sortBy === "newest") {
@@ -52,17 +47,6 @@ export const updateBlogs = createAsyncThunk(
 const blogsSlice = createSlice({
   name: "blogs",
   initialState,
-  // reducers: {
-  //   likeIncrease: (state, action) => {
-  //     console.log(action.payload);
-  //     state.blogs.map((blog) => {
-  //       if (blog.id) {
-  //         return (blog.likes += 1);
-  //       }
-  //       return blog;
-  //     });
-  //   },
-  // },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBlogs.pending, (state) => {
@@ -79,12 +63,11 @@ const blogsSlice = createSlice({
         state.blogs = [];
         state.error = action.error?.message;
       })
-      .addCase(updateBlogs.pending, (state, action) => {
+      .addCase(updateBlogs.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
       })
       .addCase(updateBlogs.fulfilled, (state, action) => {
-        // console.log(action.payload);
         const index = state.blogs.findIndex(
           (blog) => blog.id === action.payload.id
         );
@@ -101,4 +84,3 @@ const blogsSlice = createSlice({
 });
 
 export default blogsSlice.reducer;
-// export const { likeIncrease } = blogsSlice.actions;
