@@ -7,9 +7,13 @@ const SingleBlog = ({ blog }) => {
   const dispatch = useDispatch();
   const { id, title, createdAt, image, likes, tags, isSaved } = blog || {};
 
-  const tagsShow = tags.map((tag) => {
-    return <span key={tag}>#{tag}</span>;
-  });
+  // tags view
+  const tagsShow = tags.map((tag, i) => (
+    <span key={tag}>
+      #{tag}
+      {tags.length === i + 1 ? "" : ","}
+    </span>
+  ));
 
   const handlerLike = (id) => {
     const updateBlogData = {

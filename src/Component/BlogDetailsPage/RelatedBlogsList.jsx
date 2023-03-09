@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 
 const RelatedBlogsList = ({ blog }) => {
   const { id, title, image, tags, createdAt } = blog || {};
-  const tagsShow = tags.map((tag) => {
-    return <span key={tag}>#{tag} </span>;
-  });
+  const tagsShow = tags?.map((tag, i) =>
+    tags.length === i + 1 ? (
+      <span key={tag}>#{tag}</span>
+    ) : (
+      <span key={tag}>#{tag}, </span>
+    )
+  );
   return (
     <div className="space-y-4 related-post-container">
       <div className="card">

@@ -10,27 +10,10 @@ const initialState = {
   error: "",
 };
 
-export const fetchBlogs = createAsyncThunk(
-  "blogs/fetchBlogs",
-  async ({ sortBy }) => {
-    const blogs = await getBlogs();
-
-    if (sortBy === "most_liked") {
-      blogs.sort((a, b) => b.likes - a.likes);
-    } else if (sortBy === "newest") {
-      blogs.sort((a, b) => {
-        if (a.createdAt > b.createdAt) {
-          return -1;
-        }
-        if (a.createdAt < b.createdAt) {
-          return 1;
-        }
-        return 0;
-      });
-    }
-    return blogs;
-  }
-);
+export const fetchBlogs = createAsyncThunk("blogs/fetchBlogs", async () => {
+  const blogs = await getBlogs();
+  return blogs;
+});
 
 export const updateBlogs = createAsyncThunk(
   "blogs/updateBlogs",

@@ -8,9 +8,13 @@ const BlogDetails = () => {
   const { blog } = useSelector((state) => state.blog);
   const { id, title, image, likes, tags, isSaved, description } = blog || {};
 
-  const tagsShow = tags?.map((tag) => {
-    return <span key={tag}>#{tag} </span>;
-  });
+  const tagsShow = tags?.map((tag, i) =>
+    tags.length === i + 1 ? (
+      <span key={tag}>#{tag}</span>
+    ) : (
+      <span key={tag}>#{tag}, </span>
+    )
+  );
 
   const handlerSaveBlog = (id) => {
     const updateBlogData = {
